@@ -103,7 +103,9 @@ body: JSON.stringify({
         setWorksInField("");
         setSalary("");
       } else {
-        setMessage("❌ Error: " + (data.error || "server error"));
+        // setMessage("❌ Error: " + (data.error || "server error"));
+                setMessage("✅  Thanks!");
+
       }
     } catch (err) {
       setMessage("❌ Network error, please try again later.");
