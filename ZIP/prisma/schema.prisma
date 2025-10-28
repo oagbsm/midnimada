@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL")
+}
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+model User {
+  id           Int      @id @default(autoincrement())
+  fullName     String   @map("full_name")
+  phone        String
+  state        String
+  education    String
+  faculty      String?
+  works        Boolean
+  worksInField Boolean? @map("works_in_field")
+  salary       String?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("user")  // map the model to the actual lowercase table
+}
+
